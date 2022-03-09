@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/wel_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:id="@+id/wel_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is welcome screen"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:textSize="10sp"
+            android:layout_margin="10dp"
+            android:layout_below="@id/wel_txt"
+            />
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
