@@ -44,6 +44,7 @@ public class SignupActivity extends AppCompatActivity {
 
                    Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
                    startActivity(intent);
+                   finish();
                    
                }else{
                    Toast.makeText(SignupActivity.this, "Fill all the information", Toast.LENGTH_SHORT).show();
