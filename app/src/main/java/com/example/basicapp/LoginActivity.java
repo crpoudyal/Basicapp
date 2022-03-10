@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    String email_str,password_str;
+
     EditText edtUsername;
     EditText edtPassword;
     Button btnLogin;
@@ -22,8 +24,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.relative_layout);
+
+       Intent intent = getIntent();
+        if (intent.hasExtra(SignupActivity.EMAIL)) {
+
+            email_str = intent.getStringExtra(SignupActivity.EMAIL);
+
+
+        }
+        if(intent.hasExtra(SignupActivity.PASSWORD)){
+
+            password_str = intent.getStringExtra(SignupActivity.PASSWORD);
+
+        }
 
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
@@ -65,11 +79,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        if(chk == true){
            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+
            startActivity(intent);
            finish();
-
-       }else{
-           Toast.makeText(LoginActivity.this, "Fill all information", Toast.LENGTH_SHORT).show();
 
        }
     }

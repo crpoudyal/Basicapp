@@ -11,6 +11,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity {
+
+    public static final String EMAIL = "int_email";
+    public static final String PASSWORD = "int_password";
+
+
+
     EditText edtEmail;
     EditText edtPass;
     EditText edtAddress;
@@ -43,11 +49,12 @@ public class SignupActivity extends AppCompatActivity {
                    Toast.makeText(SignupActivity.this, "Signup success", Toast.LENGTH_SHORT).show();
 
                    Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
+
+                   intent.putExtra(EMAIL,email);
+                   intent.putExtra(PASSWORD,password);
+
                    startActivity(intent);
                    finish();
-                   
-               }else{
-                   Toast.makeText(SignupActivity.this, "Fill all the information", Toast.LENGTH_SHORT).show();
                }
 
             }
