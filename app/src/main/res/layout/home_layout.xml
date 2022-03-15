@@ -31,6 +31,15 @@
             android:text="This is welcome screen"
             android:textColor="@color/white"
             android:textSize="10sp" />
+        <TextView
+            android:id="@+id/res_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/wel_description"
+            />
+
     </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -2,6 +2,7 @@ package com.example.basicapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,7 +52,10 @@ public class SignupActivity extends AppCompatActivity {
                    Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
 
                    intent.putExtra(EMAIL,email);
+                   Log.e("TAG",email);
+
                    intent.putExtra(PASSWORD,password);
+                   Log.e("TAG",password);
 
                    startActivity(intent);
                    finish();
@@ -78,10 +82,6 @@ public class SignupActivity extends AppCompatActivity {
              edtPass.setError("Please enter your password");
              return false;
 
-         }else if(password.length() < 10){
-             edtPass.requestFocus();
-             edtPass.setError("Password must be 10 character or more");
-             return false;
          }
          if(address.isEmpty()){
              edtAddress.requestFocus();

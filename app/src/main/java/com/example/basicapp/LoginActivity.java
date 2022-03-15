@@ -26,18 +26,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.relative_layout);
 
-       Intent intent = getIntent();
-        if (intent.hasExtra(SignupActivity.EMAIL)) {
-
-            email_str = intent.getStringExtra(SignupActivity.EMAIL);
 
 
-        }
-        if(intent.hasExtra(SignupActivity.PASSWORD)){
-
-            password_str = intent.getStringExtra(SignupActivity.PASSWORD);
-
-        }
 
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
@@ -75,14 +65,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
        boolean chk= loginValidation(username, password);
+        Intent i = getIntent();
+        if (i.hasExtra(SignupActivity.EMAIL)) {
+            email_str = i.getStringExtra(SignupActivity.EMAIL);
+            Log.e("TAG",email_str);
+        }
+        if (i.hasExtra(SignupActivity.PASSWORD)) {
+            password_str = i.getStringExtra(SignupActivity.PASSWORD);
+            Log.e("TAG",password_str);
+        }
 
-       if(chk == true){
+       if(chk == true && username.equals(email_str) && password.equals(password_str)){
            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
 
            startActivity(intent);
            finish();
 
+       }else{
+           Toast.makeText(LoginActivity.this, "username and Password not match", Toast.LENGTH_SHORT).show();
        }
     }
 
@@ -92,19 +93,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             edtUsername.setError("Username should have something");
             return false;
         }
-        else if (username.length() < 6) {
-            edtUsername.setError("Username should be of 6 character or more");
-            return false;
-        }
+
         if (password.isEmpty()) {
+
             edtPassword.setError("Please enter your password");
             return false;
-        } else if (password.length() < 10) {
-            edtPassword.setError("Password must be 10 character or more");
-            return false;
-        } else {
-            return true;
         }
+            return true;
+
     }
 }
 
