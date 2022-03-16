@@ -46,7 +46,7 @@ public class SignupActivity extends AppCompatActivity {
 
                Boolean chk = validation(email,password,address,bio);
 
-               if(chk == true){
+               if(chk ){
                    Toast.makeText(SignupActivity.this, "Signup success", Toast.LENGTH_SHORT).show();
 
                    Intent intent = new Intent(SignupActivity.this,LoginActivity.class);

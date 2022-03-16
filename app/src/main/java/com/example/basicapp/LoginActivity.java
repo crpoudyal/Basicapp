@@ -55,16 +55,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //            }
 //        });
 
-
-    }
-
-    @Override
-    public void onClick(View view) {
-        String username = edtUsername.getText().toString();
-        String password = edtPassword.getText().toString();
-
-
-       boolean chk= loginValidation(username, password);
         Intent i = getIntent();
         if (i.hasExtra(SignupActivity.EMAIL)) {
             email_str = i.getStringExtra(SignupActivity.EMAIL);
@@ -75,10 +65,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Log.e("TAG",password_str);
         }
 
-       if(chk == true && username.equals(email_str) && password.equals(password_str)){
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        String username = edtUsername.getText().toString();
+        String password = edtPassword.getText().toString();
+
+
+       boolean chk= loginValidation(username, password);
+
+
+       if(chk && username.equals(email_str) && password.equals(password_str)){
            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-
            startActivity(intent);
            finish();
 
@@ -100,7 +101,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return false;
         }
             return true;
-
     }
 }
 
