@@ -94,7 +94,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             edtUsername.setError("Username should have something");
             return false;
         }
-
         if (password.isEmpty()) {
 
             edtPassword.setError("Please enter your password");
