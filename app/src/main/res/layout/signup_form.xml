@@ -102,6 +102,57 @@
             android:inputType="text"
             android:background="@drawable/round"
             android:hint="Bio"/>
+        <CheckBox
+            android:id="@+id/chkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="I agree terms and conditions"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:text="Gender"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:textColor="@color/white" />
+        </RadioGroup>
+        <Spinner
+            android:id="@+id/sp_states"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
         <Button
             android:id="@+id/signup_btn"
             android:layout_width="match_parent"

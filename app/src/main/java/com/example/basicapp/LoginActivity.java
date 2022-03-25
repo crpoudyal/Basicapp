@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     String email_str,password_str;
+    public static final String EMAIL = "int_email";
 
     EditText edtUsername;
     EditText edtPassword;
@@ -56,6 +57,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //        });
 
         Intent i = getIntent();
+
+
         if (i.hasExtra(SignupActivity.EMAIL)) {
             email_str = i.getStringExtra(SignupActivity.EMAIL);
             Log.e("TAG",email_str);
@@ -69,6 +72,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(RESULT_CANCELED);
+    }
+
+    @Override
     public void onClick(View view) {
         String username = edtUsername.getText().toString();
         String password = edtPassword.getText().toString();
@@ -79,7 +88,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
        if(chk && username.equals(email_str) && password.equals(password_str)){
            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+
+           Intent returnIntent = new Intent();
+           returnIntent.putExtra(EMAIL,email_str);
+           setResult(RESULT_OK,returnIntent);
+           startActivityForResult(returnIntent,100);
+
            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+           intent.putExtra(EMAIL,email_str);
            startActivity(intent);
            finish();
 
